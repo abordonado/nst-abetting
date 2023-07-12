@@ -7,6 +7,8 @@ import configuration from './config/configuration';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { environments, environmentsType, validationSchema } from './config';
+import { ExternalCountryModule } from './external-country/external-country.module';
+import { DataProviderModule } from './data-provider/data-provider.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { environments, environmentsType, validationSchema } from './config';
       isGlobal: true,
       validationSchema,
     }),
+    ExternalCountryModule,
+    DataProviderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
