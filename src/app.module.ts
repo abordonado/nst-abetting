@@ -9,6 +9,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { environments, environmentsType, validationSchema } from './config';
 import { TestModule } from './test/test.module';
+import { ExternalCountryModule } from './external-country/external-country.module';
+import { DataProviderModule } from './data-provider/data-provider.module';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { TestModule } from './test/test.module';
     }),
 
     TestModule,
+    ExternalCountryModule,
+    DataProviderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
