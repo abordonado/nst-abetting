@@ -11,6 +11,7 @@ import { environments, environmentsType, validationSchema } from './config';
 import { TestModule } from './test/test.module';
 import { ExternalCountryModule } from './external-country/external-country.module';
 import { DataProviderModule } from './data-provider/data-provider.module';
+import { CountryModule } from './country/country.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { DataProviderModule } from './data-provider/data-provider.module';
     TestModule,
     ExternalCountryModule,
     DataProviderModule,
+    CountryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
