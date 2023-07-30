@@ -1,14 +1,17 @@
 // Global imports
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 
 // Project imports
 import configuration from './config/configuration';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { environments, environmentsType, validationSchema } from './config';
+import { TestModule } from './test/test.module';
 import { ExternalCountryModule } from './external-country/external-country.module';
 import { DataProviderModule } from './data-provider/data-provider.module';
+import { CountryModule } from './country/country.module';
 
 @Module({
   imports: [
@@ -20,8 +23,17 @@ import { DataProviderModule } from './data-provider/data-provider.module';
       isGlobal: true,
       validationSchema,
     }),
+
+    MongooseModule.forRoot('mongodb://localhost:27017', {
+      user: 'root',
+      pass: 'root',
+      dbName: 'abetting',
+    }),
+
+    TestModule,
     ExternalCountryModule,
     DataProviderModule,
+    CountryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
